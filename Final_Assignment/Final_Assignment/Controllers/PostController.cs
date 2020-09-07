@@ -7,6 +7,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
+
 namespace Final_Assignment.Controllers
 {
     [RoutePrefix("api/posts")]
@@ -33,13 +34,18 @@ namespace Final_Assignment.Controllers
                 return StatusCode(HttpStatusCode.NoContent);
             }
             //HATEOES Implementation
-            /*cat.HyperLinks.Add(new HyperLink() { HRef = "https://localhost:44334/api/categories/" + cat.CategoryId, HttpMethod = "GET", Relation = "Self" });
-            cat.HyperLinks.Add(new HyperLink() { HRef = "https://localhost:44334/api/categories", HttpMethod = "POST", Relation = "Create a new Category resource" });
-            cat.HyperLinks.Add(new HyperLink() { HRef = "https://localhost:44334/api/categories/" + cat.CategoryId, HttpMethod = "PUT", Relation = "Edit a exsiting Category resource" });
-            cat.HyperLinks.Add(new HyperLink() { HRef = "https://localhost:44334/api/categories/" + cat.CategoryId, HttpMethod = "DELETE", Relation = "Delete a exsiting Category resource" });*/
+            post.HyperLinks.Add(new HyperLink() { HRef = "https://localhost:44304/api/posts/" + post.PostId, HttpMethod = "GET", Relation = "Self" });
+            post.HyperLinks.Add(new HyperLink() { HRef = "https://localhost:44304/api/posts", HttpMethod = "POST", Relation = "Create a new Post resource" });
+            post.HyperLinks.Add(new HyperLink() { HRef = "https://localhost:44304/api/posts/" + post.PostId, HttpMethod = "PUT", Relation = "Edit a exsiting Post resource" });
+            post.HyperLinks.Add(new HyperLink() { HRef = "https://localhost:44304/api/posts/" + post.PostId, HttpMethod = "DELETE", Relation = "Delete a exsiting Post resource" });
 
 
             return Ok(post);
+        }
+        [Route("{id}/comments")]
+        public IHttpActionResult GetCommentsWithPost(int id)
+        {
+            return Ok(postRepo.GetCommentsWithPost(id));
         }
 
         [Route("")]

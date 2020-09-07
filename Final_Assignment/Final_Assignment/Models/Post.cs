@@ -15,6 +15,7 @@ namespace Assignment.Models
         [Column(TypeName = "varchar"), StringLength(40), Display(Name = "Post")]
         public string PostName { get; set; }
 
+        public List<HyperLink> HyperLinks = new List<HyperLink>();
         public IEnumerable<Comment> Comments { get; set; }
 
     }
