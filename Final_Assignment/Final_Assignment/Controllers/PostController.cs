@@ -42,11 +42,30 @@ namespace Final_Assignment.Controllers
 
             return Ok(post);
         }
+       
         [Route("{id}/comments")]
         public IHttpActionResult GetCommentsWithPost(int id)
         {
             return Ok(postRepo.GetCommentsWithPost(id));
         }
+
+       /* [Route("{id}/comments/{id}")]
+        [HttpGet]
+        public IHttpActionResult GetCommentById(int id)
+        {
+            Comment comt = postRepo.GetCommentById(id);
+            return Ok(comt);
+
+        }
+        [Route("{id}/comments")]
+        [HttpPost]
+        public IHttpActionResult CreateComment(Comment cm,int id)
+        {
+            
+            postRepo.CreateComment(cm,id);
+            string url = Url.Link("GetById", new { id = cm.CommentId });
+            return Created(url,cm);
+        }*/
 
         [Route("")]
         public IHttpActionResult Post(Post post)

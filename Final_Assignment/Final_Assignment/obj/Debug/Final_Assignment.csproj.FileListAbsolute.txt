@@ -69,3 +69,6 @@ F:\AIUB\11th_SEMESTER\.NET\FINAL\RESTFULLAPI\Final_Assignment\Final_Assignment\b
 F:\AIUB\11th_SEMESTER\.NET\FINAL\RESTFULLAPI\Final_Assignment\Final_Assignment\obj\Debug\Final_Assignment.csproj.CopyComplete
 F:\AIUB\11th_SEMESTER\.NET\FINAL\RESTFULLAPI\Final_Assignment\Final_Assignment\obj\Debug\Final_Assignment.dll
 F:\AIUB\11th_SEMESTER\.NET\FINAL\RESTFULLAPI\Final_Assignment\Final_Assignment\obj\Debug\Final_Assignment.pdb
+F:\AIUB\11th_SEMESTER\.NET\FINAL\RESTFULLAPI\Final_Assignment\Final_Assignment\bin\System.Web.Cors.dll
+F:\AIUB\11th_SEMESTER\.NET\FINAL\RESTFULLAPI\Final_Assignment\Final_Assignment\bin\System.Web.Http.Cors.dll
+F:\AIUB\11th_SEMESTER\.NET\FINAL\RESTFULLAPI\Final_Assignment\Final_Assignment\bin\System.Web.Http.Cors.xml
