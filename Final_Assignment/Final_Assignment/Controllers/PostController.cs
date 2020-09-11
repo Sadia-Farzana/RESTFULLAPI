@@ -49,14 +49,14 @@ namespace Final_Assignment.Controllers
             return Ok(postRepo.GetCommentsWithPost(id));
         }
 
-       /* [Route("{id}/comments/{id}")]
-        [HttpGet]
-        public IHttpActionResult GetCommentById(int id)
+        [Route("{id}/comments/{cid}")]
+        public IHttpActionResult GetComment(int id,int cid)
         {
-            Comment comt = postRepo.GetCommentById(id);
-            return Ok(comt);
+           
+            return Ok(postRepo.GetComment(id,cid));
 
         }
+       /*
         [Route("{id}/comments")]
         [HttpPost]
         public IHttpActionResult CreateComment(Comment cm,int id)
@@ -90,6 +90,24 @@ namespace Final_Assignment.Controllers
         {
             postRepo.Delete(id);
             return StatusCode(HttpStatusCode.NoContent);
+        }
+
+
+        [Route("{id}/comments/{cid}" , Name = "DeleteCommentByPostId")]
+        public IHttpActionResult DeleteCommentByPostId(int id,int cid)
+        {
+            postRepo.DeleteCommentByPostId(id,cid);
+            return StatusCode(HttpStatusCode.NoContent);
+        }
+
+        [Route("{id}/comments/{cid}" , Name = "EditCommentByPostId")]
+        public IHttpActionResult EditComment( [FromUri] int id, [FromUri] int cid,[FromBody] Comment comment)
+        {
+            comment.CommentId = cid;
+          
+            postRepo.EditCommentByPostId(id,comment);
+
+            return Ok();
         }
 
     }
