@@ -9,11 +9,16 @@ ComboSelectLoadPosts();
 		loadPost();
 
 	});
+	$("#loadComment").click(function(){
 
-  	$("#editpostselect").change(function(){
-  		split=	$("#editpostselect").val().split("--");
-      $("#editPost").val(split[1]);
-  	});
+		loadComment();
+
+	});
+
+	$("#editpostselect").change(function(){
+		split=	$("#editpostselect").val().split("--");
+		$("#editPost").val(split[1]);
+	});
     $("#SaveButton").click(function(){
     		EditPost();
     	});
@@ -27,6 +32,7 @@ ComboSelectLoadPosts();
     $("#deleteButton").click(function(){
     		deletePost();
     	});
+
 
 function CreatePost() {
   $.ajax({
@@ -88,7 +94,7 @@ function EditPost() {
 function deletePost()
 {
 	$.ajax({
-			url:"http://localhost:44304/api/posts/"+split[0],
+			url:"https://localhost:44304/api/posts/"+split[0],
 			method:"delete",
 			headers:{
 				contentType:"application/json"
@@ -113,6 +119,7 @@ function deletePost()
 }
 function loadPost()
 {
+
 	$.ajax({
 			url:"https://localhost:44304/api/posts",
 			method:"get",
@@ -123,8 +130,38 @@ function loadPost()
 					var str='';
 					for (var i = 0; i < data.length; i++) {
 
-						str+="<tr><td>"+data[i].PostId+"</td> <td>"+data[i].PostName+"</td></tr>";
+				str+="<tr><td>"+data[i].PostId+"</td> <td>"+data[i].PostName+"</td> <td>"+'<button class="btn btn-success" id="loadComment">Comment</button>'
++"</td></tr>";
 						$("#PostList").html(str);
+					};
+
+				}
+				else
+				{
+					console.log(xmlHttp.status+":"+xmlHttp.statusText);
+				}
+			}
+
+	
+	});
+
+
+}
+function loadComment()
+{
+
+	$.ajax({
+			url:"https://localhost:44304/api/posts/"+split[0]+"/comments",
+			method:"get",
+			complete:function(xmlHttp,status){
+				if(xmlHttp.status==200)
+				{
+					var data=xmlHttp.responseJSON;
+					var str='';
+					for (var i = 0; i < data.length; i++) {
+
+						str+="<tr><td>"+data[i].CommentId+"</td> <td>"+data[i].CommentName+"</td></tr>";
+						$("#CommentList").html(str);
 					};
 
 				}

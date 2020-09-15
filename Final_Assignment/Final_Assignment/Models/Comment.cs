@@ -16,6 +16,8 @@ namespace Assignment.Models
         public string CommentName { get; set; }
         public int PostId { get; set; }
 
+
+        public List<HyperLink> HyperLinks = new List<HyperLink>();
         public Post Post { get; set; }
     }
 }

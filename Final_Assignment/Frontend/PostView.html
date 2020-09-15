@@ -4,21 +4,29 @@
 	<meta charset="UTF-8">
 	<script type="text/javascript" src="jquery-3.5.1.js"></script>
 	<script type="text/javascript" src="PostViewJs.js"></script>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 <body>
+	<div class="alert alert-secondary" >
+	<h1 margin="center">Post Page</h1>
+</div>
 
-	<table>
+	<div class="alert alert-primary" style="margin:center" role="alert">
+		<div class="row">
+		    <div class="col">
+	<table align="center">
 		<tr>
 			<th>Create Post</th>
 			<th></th>
 		</tr>
 		<tr>
 			<td>Post</td>
-			<td><input type="text" id="PostName"/></td>
+			<td><input type="text" class="form-control" id="PostName"/></td>
 		</tr>
 		<tr>
 			<td></td>
-			<td><button id="createButton">Create</button></td>
+			<td><button class="btn btn-secondary" id="createButton">Create</button></td>
 		</tr>
 		<tr>
 			<td></td>
@@ -27,7 +35,8 @@
 	</table>
 	<hr>
 
-	<table>
+
+	<table align="center">
 		<tr>
 			<th>Edit Post</th>
 			<th></th>
@@ -35,18 +44,18 @@
 		<tr>
 			<td>Post</td>
 			<td>
-				<select id="editpostselect">
+				<select  class="custom-select" id="editpostselect">
 
 				</select>
 			</td>
 		</tr>
 		<tr>
 			<td>Post</td>
-			<td><input type="text" id="editPost"/></td>
+			<td><input type="text" class="form-control" id="editPost"/></td>
 		</tr>
 		<tr>
 			<td></td>
-			<td><button id="SaveButton">Save</button></td>
+			<td><button class="btn btn-secondary" id="SaveButton">Save</button></td>
 		</tr>
 		<tr>
 			<td></td>
@@ -54,8 +63,10 @@
 		</tr>
 	</table>
 	<hr>
+</div>
 
-	<table>
+  <div class="col">
+	<table align="center">
 		<tr>
 			<th>Delete Post</th>
 			<th></th>
@@ -63,7 +74,7 @@
 		<tr>
 			<td>Post</td>
 			<td>
-				<select id="deletepostselect">
+				<select class="custom-select" id="deletepostselect">
 
 				</select>
 			</td>
@@ -71,7 +82,7 @@
 
 		<tr>
 			<td></td>
-			<td><button id="deleteButton">Delete</button></td>
+			<td><button class="btn btn-secondary" id="deleteButton">Delete</button></td>
 		</tr>
 		<tr>
 			<td></td>
@@ -79,19 +90,26 @@
 		</tr>
 	</table>
 	<hr>
-	<button id="loadPost">Load Post</button>
+<div align="center">
+<button class="btn btn-success" id="loadPost">Load Post</button>
+</div>
 	<br/>
 	<br/>
-	<table border="1" id="PostList">
-		<thead>
-			<tr>
-				<th>Post Id</th>
-				<th>Post</th>
-			</tr>
-		</thead>
-		<tbody>
+	<table align="center" style="width:400px" class="table table-dark" border="1" id="PostList">
 
-		</tbody>
-	</table>
+
+			<thead>
+				<tr>
+					<th align="center">Post Id</th>
+					<th scope="col">Post</th>
+					<th scope="col"></th>
+				</tr>
+			</thead>
+
+	 </table>
+
+		</div>
+
+</div>
 </body>
 </html>

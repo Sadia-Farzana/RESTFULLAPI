@@ -18,10 +18,10 @@ namespace Final_Assignment.Repository
             return this.context.Comments.Where(x => x.PostId == id).ToList();
         }
         
-        public void CreateComment(Comment entity,int id)
+        public void CreateComment(Comment entity)
         {
             
-            var check = context.Comments.Single(x => x.PostId == id);
+           
             context.Comments.Add(entity);
             context.SaveChanges();
         }
@@ -45,22 +45,15 @@ namespace Final_Assignment.Repository
             context.SaveChanges();
         }
 
-        public void EditCommentByPostId(int id,Comment entity)
+        public void EditCommentByPostId(Comment comt)
         {
-            var edit = context.Comments.Single(x => x.PostId == id);
-            if (edit != null)
-            {
-                context.Entry(entity).State = EntityState.Modified;
+            
+                context.Entry(comt).State = EntityState.Modified;
                 context.SaveChanges();
-            }
+            
         }
 
-        /*
-        public void Edit(T entity)
-        {
-            context.Entry(entity).State = EntityState.Modified;
-            context.SaveChanges();
-        } */
+      
         public Comment GetComment(int pid, int cid)
         {
             return context.Comments.SingleOrDefault(c => c.PostId == pid && c.CommentId == cid);
